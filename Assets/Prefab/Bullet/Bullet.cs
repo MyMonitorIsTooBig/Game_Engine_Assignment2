@@ -19,16 +19,20 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag != "Player")
+        if(other.tag != "Player" && other.tag != "Bullet")
         {
-            if(other.tag != "Bullet")
+
+            if (other.gameObject.GetComponent<EnemyMovement>() != null)
             {
-                if (other.gameObject.GetComponent<EnemyMovement>() != null)
-                {
-                    other.GetComponent<EnemyMovement>().TakeDamage(1);
-                }
-                Destroy(gameObject);
+                other.GetComponent<EnemyMovement>().TakeDamage(1);
             }
+
+            if(other.gameObject.GetComponent<EvilEnemyMovement>() != null)
+            {
+                other.GetComponent<EvilEnemyMovement>().TakeDamage(5);
+            }
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
             
         }
         

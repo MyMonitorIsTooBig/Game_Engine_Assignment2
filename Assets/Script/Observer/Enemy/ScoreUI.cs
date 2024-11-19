@@ -25,19 +25,14 @@ public class ScoreUI : singleton<ScoreUI>, EnemyObserver
     public void OnEnemyDeath()
     {
         score += Random.Range(1, maxScore);
-        //Debug.Log($"Enemy defeated! Score: {score}");
-        // Update the score UI here if needed
+    }
+
+    public void OnEvilDeath()
+    {
+        score -= Random.Range(1, maxScore*2);
     }
     void OnGUI()
     {
-        //score = 
-        //GUILayout.BeginArea(
-        //    new Rect(50, 50, 100, 2000));
-        //GUILayout.BeginHorizontal("box");
-        //GUILayout.Label("score: "+score);
-        //GUILayout.EndHorizontal();
-        //GUILayout.EndArea();
-
         scoreText.text = score.ToString();
     }
 }

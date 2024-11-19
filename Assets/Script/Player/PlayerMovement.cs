@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     GameObject _camera;
+
+    [SerializeField] private Transform _bulletStart;
+
     CameraFollow _cameraFollow;
 
     bool _isPaused = false;
@@ -25,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject _pauseMenu;
 
     [SerializeField]
-    GameObject bullet;
+    Bullet bullet;
 
     public bool started = false;
     
@@ -116,7 +119,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(bullet, transform.position, transform.rotation);
+        //EnemyPool.CreateEnemy();
+        //Instantiate(bullet, transform.position, transform.rotation);
+        PooledShoot();
+    }
+
+    void PooledShoot()
+    {
+        Bullet b = BulletPool.CreateEnemy(bullet.name, _bulletStart.position, _bulletStart.rotation);
     }
 
     public void Jump()

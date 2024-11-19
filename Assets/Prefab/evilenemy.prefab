@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1440130323605732777}
   - component: {fileID: 1440130323605732776}
   - component: {fileID: 2903540544076400446}
-  - component: {fileID: 5839683899526640560}
+  - component: {fileID: -6609054823152076455}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: evilenemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3eba4539d36b257469d35044991158ed, type: 2}
+  - {fileID: 2100000, guid: 799b582dbebdfc847a320084f32316c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5839683899526640560
+--- !u!114 &-6609054823152076455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,10 +124,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1440130323605732779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dda0f3e14051d284eb9c3970d6707f35, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c01116caf8292a408e3501269c77428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 1180bccf89d02044888e0d882b96cd77, type: 2}
+  enemyStats: {fileID: 11400000, guid: 15eb9b64061cc8e4bb77798850edfb39, type: 2}
   player: {fileID: 0}
-  rb: {fileID: 2903540544076400446}
   health: 5

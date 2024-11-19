@@ -12,6 +12,8 @@ public class enemySpawner : Spawner
 
     [SerializeField]
     GameObject _enemyPrefab;
+    [SerializeField]
+    GameObject _evilEnemyPrefab;
     ScoreUI scoreManager;
 
     int randomNum;
@@ -19,6 +21,12 @@ public class enemySpawner : Spawner
     public bool started = false;
 
     PlayerManager _playerManager;
+
+
+    bool _freakyMode = false;
+    int _freakySpawnAmt = 20;
+
+    int enemyType;
 
     
     void Start()
@@ -58,7 +66,28 @@ public class enemySpawner : Spawner
 
             if (time % 10 == 0 && timer.Instance.canCount)
             {
-                spawnEnemyInPosition(_spawns);
+                if (_freakyMode)
+                {
+                    for(int i = 0; i < _freakySpawnAmt; i++)
+                    {
+                        spawnEnemyInPosition(_spawns, _enemyPrefab);
+                        spawnEnemyInPosition(_spawns, _evilEnemyPrefab);
+                    }
+                }
+                else
+                {
+                    enemyType = Random.Range(0, 5);
+
+                    if(enemyType == 3)
+                    {
+                        spawnEnemyInPosition(_spawns, _evilEnemyPrefab);
+                    }
+                    else
+                    {
+                        spawnEnemyInPosition(_spawns, _enemyPrefab);
+                    }
+
+                }
             }
         }
 
@@ -67,17 +96,17 @@ public class enemySpawner : Spawner
 
 
     //creates a random number then spawns an enemy at the transform in the index of that random number
-    void spawnEnemyInPosition(List<Transform> tArray)
+    void spawnEnemyInPosition(List<Transform> tArray, GameObject entity)
     {
         randomNum = Random.Range(0, _spawns.Count);
-        spawn(tArray[randomNum].position, scoreManager);
+        spawn(tArray[randomNum].position, scoreManager, entity);
         
         //Debug.Log("enemy spawned");
     }
 
 
-    public override GameObject createEntity()
+    public override GameObject createEntity(GameObject entity)
     {
-        return _enemyPrefab;
+        return entity;
     }
 }
