@@ -23,8 +23,8 @@ public class enemySpawner : Spawner
     PlayerManager _playerManager;
 
 
-    bool _freakyMode = false;
-    int _freakySpawnAmt = 20;
+    public bool _freakyMode = false;
+    [SerializeField]int _freakySpawnAmt = 1000;
 
     int enemyType;
 

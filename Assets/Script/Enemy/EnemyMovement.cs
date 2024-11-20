@@ -24,6 +24,8 @@ public class EnemyMovement : Observer
 
     PlayerManager _playerManager;
 
+    CameraFollow _camera;
+
     float _distPlayer = 0.0f;
     Vector3 normalDist;
     public override void Notify(Subject subject)
@@ -40,6 +42,8 @@ public class EnemyMovement : Observer
 
         _playerManager = FindObjectOfType<PlayerManager>();
         _playerManager.attachObserver(this);
+
+        _camera = GameObject.Find("camParent").GetComponent<CameraFollow>();
     }
 
     // Update is called once per frame
@@ -81,6 +85,7 @@ public class EnemyMovement : Observer
     }
     void Die()
     {
+        //_camera.triggerAnimation("camGood");
         scoreUI.OnEnemyDeath();
         Destroy(gameObject);
     }

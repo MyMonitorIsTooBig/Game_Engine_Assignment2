@@ -35,6 +35,13 @@ public class timer : singleton<timer>
     {
 
         _timerText = GameObject.Find("timerText").GetComponent<TextMeshProUGUI>();
+        winScreen = GameObject.Find("WinBG");
+        loseScreen = GameObject.Find("LoseBG");
+
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
+
+
     }
 
 
@@ -43,14 +50,17 @@ public class timer : singleton<timer>
     {
         if(_timerText == null)
         {
-            
             _timerText = null;
 
             if (GameObject.Find("timerText"))
             {
                 _timerText = GameObject.Find("timerText").GetComponent<TextMeshProUGUI>();
-            }
+                winScreen = GameObject.Find("WinBG");
+                loseScreen = GameObject.Find("LoseBG");
 
+                winScreen.SetActive(false);
+                loseScreen.SetActive(false);
+            }
         }
         //Debug.Log(_timerText);
 

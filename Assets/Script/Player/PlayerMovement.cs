@@ -39,7 +39,8 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
-        _cameraFollow = _camera.GetComponent<CameraFollow>();
+        //_cameraFollow = _camera.GetComponent<CameraFollow>();
+        _cameraFollow = _camera.GetComponentInParent<CameraFollow>();
         _input = FindObjectOfType<InputHandler>();//Leo
     }
 

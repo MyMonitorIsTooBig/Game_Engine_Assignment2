@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-public class Generator : singleton<Generator>
+public class Generator : MonoBehaviour
 {
 	public GameObject wall;
 	public GameObject floor;
@@ -12,10 +13,45 @@ public class Generator : singleton<Generator>
     public float wallProbability = 0.3f;
     private List<Vector2Int> directions;
 
-    void Start()
+    private static Generator _instance;
+
+    public static Generator Instance
     {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<Generator>();
+
+                if (_instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(Generator).Name;
+                    _instance = obj.AddComponent<Generator>();
+                }
+            }
+
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+
+
+        if (_instance == null)
+        {
+            _instance = this as Generator;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
         GenerateLab();
-        
+
         //create 10 enemySpawn and randomly distribute them through out the map
         for (int i = 0; i < 10; i++)
         {
@@ -23,6 +59,11 @@ public class Generator : singleton<Generator>
         }
         //Create an outside barrier wall surrounding the entire maze no matter the width and height
         CreateOutsideWall();
+
+    }
+    void Start()
+    {
+
     }
     private void GenerateLab()
     {

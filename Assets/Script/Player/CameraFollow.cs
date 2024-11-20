@@ -17,9 +17,12 @@ public class CameraFollow : MonoBehaviour
 
     public bool started = false;
 
+    public Animator camAnim;
+
     void Start()
     {
         // Initialize camera rotation
+        camAnim.enabled = false;
     }
 
     void Update()
@@ -42,6 +45,13 @@ public class CameraFollow : MonoBehaviour
 
             transform.position = player.position + offset;
         }
+
         
+    }
+
+    public void triggerAnimation(string trigger)
+    {
+        camAnim.enabled = true;
+        camAnim.SetTrigger(trigger);
     }
 }

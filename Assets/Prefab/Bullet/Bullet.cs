@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
                 other.GetComponent<EvilEnemyMovement>().TakeDamage(5);
             }
             //Destroy(gameObject);
+            rb.velocity = Vector3.zero;
             gameObject.SetActive(false);
             
         }

@@ -17,10 +17,13 @@ public class EvilEnemyMovement : Observer
     [SerializeField]
     public int health = 5;
 
-    bool run = false;
+    //bool run = false;
 
 
     PlayerManager _playerManager;
+
+    CameraFollow _camera;
+
 
     public override void Notify(Subject subject)
     {
@@ -35,6 +38,8 @@ public class EvilEnemyMovement : Observer
 
         _playerManager = FindObjectOfType<PlayerManager>();
         _playerManager.attachObserver(this);
+
+        _camera = GameObject.Find("camParent").GetComponent<CameraFollow>();
     }
 
     // Update is called once per frame
@@ -59,6 +64,7 @@ public class EvilEnemyMovement : Observer
     }
     void Die()
     {
+        _camera.triggerAnimation("camShake");
         scoreUI.OnEvilDeath();
         Destroy(gameObject);
     }
