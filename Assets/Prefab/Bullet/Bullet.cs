@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Rigidbody rb;
+
+    [SerializeField] bulletSO bulletStats;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +26,12 @@ public class Bullet : MonoBehaviour
 
             if (other.gameObject.GetComponent<EnemyMovement>() != null)
             {
-                other.GetComponent<EnemyMovement>().TakeDamage(1);
+                other.GetComponent<EnemyMovement>().TakeDamage(bulletStats.damage);
             }
 
             if(other.gameObject.GetComponent<EvilEnemyMovement>() != null)
             {
-                other.GetComponent<EvilEnemyMovement>().TakeDamage(5);
+                other.GetComponent<EvilEnemyMovement>().TakeDamage(bulletStats.damage);
             }
             //Destroy(gameObject);
             rb.velocity = Vector3.zero;
