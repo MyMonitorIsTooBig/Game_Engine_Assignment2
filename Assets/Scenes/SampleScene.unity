@@ -4438,7 +4438,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383785984}
-  - component: {fileID: 1383785983}
+  - component: {fileID: 1383785986}
+  - component: {fileID: 1383785987}
   m_Layer: 0
   m_Name: FileParsePlugin
   m_TagString: Untagged
@@ -4446,29 +4447,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1383785983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383785982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6a315f1b414ab3418898eee854699e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileName: SettingsTest.txt
-  bulletStats: {fileID: 11400000, guid: 587077bd3fd396f478ebd7d31669a627, type: 2}
-  enemyStats: {fileID: 11400000, guid: 1180bccf89d02044888e0d882b96cd77, type: 2}
-  player: {fileID: 0}
-  scoreChange: 0
-  dmgChange: 0
-  moveChange: 0
-  jumpChange: 0
-  enemScoreChange: 0
-  enemSpeedChange: 0
-  enemyDistChange: 0
 --- !u!4 &1383785984
 Transform:
   m_ObjectHideFlags: 0
@@ -4484,6 +4462,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1383785986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383785982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29cb1d49be89e8428b45f34e4e53a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plugin: {fileID: 1383785987}
+  bulletStats: {fileID: 11400000, guid: 587077bd3fd396f478ebd7d31669a627, type: 2}
+  enemyStats: {fileID: 11400000, guid: 1180bccf89d02044888e0d882b96cd77, type: 2}
+  player: {fileID: 2127643225}
+  scoreChange: 1
+  dmgChange: 1
+  moveChange: 1
+  jumpChange: 1
+  enemScoreChange: 1
+  enemSpeedChange: 1
+  enemyDistChange: 1
+--- !u!114 &1383785987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383785982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -531272315, guid: 16f644875c4cb1447aacbccd15355629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: SettingsTest.txt
 --- !u!1 &1440428319
 GameObject:
   m_ObjectHideFlags: 0
