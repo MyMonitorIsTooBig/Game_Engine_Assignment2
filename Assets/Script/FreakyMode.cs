@@ -10,6 +10,8 @@ public class FreakyMode : MonoBehaviour
 
     private int freakMeter = 0;
 
+    List<char> freakList = new List<char> { 'F', 'R', 'E', 'A', 'K', 'Y' };
+
 
     [SerializeField] enemySpawner _es;
 

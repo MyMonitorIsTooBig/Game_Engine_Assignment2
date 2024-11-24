@@ -24,42 +24,54 @@ public class PluginToUnityIntegration : MonoBehaviour
     [SerializeField] bool enemyDistChange = false;
 
 
+    bool canUpdate = true;
+
     // Start is called before the first frame update
     void Start()
     {
-
-        player = GameObject.Find("Player").GetComponent<PlayerMovement>();
-
-        if (scoreChange)
-        {
-            ScoreUI.Instance.score = _plugin.score;
-        }
-        if (dmgChange)
-        {
-            bulletStats.damage = _plugin.damage;
-        }
-        if (moveChange)
-        {
-            player.moveSpeed = _plugin.moveSpeed;
-        }
-        if (jumpChange)
-        {
-            player.jumpHeight = _plugin.jumpHeight;
-        }
-        if (enemScoreChange)
-        {
-            enemyStats._maxScore = _plugin.enemyScore;
-        }
-        if (enemSpeedChange)
-        {
-            enemyStats._speed = _plugin.enemySpeed;
-        }
-        if (enemyDistChange)
-        {
-            enemyStats._distance = _plugin.enemyDistance;
-        }
+        
 
     }
+
+    private void Update()
+    {
+        if (canUpdate)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
+            if (scoreChange)
+            {
+                ScoreUI.Instance.score = _plugin.score;
+            }
+            if (dmgChange)
+            {
+                bulletStats.damage = _plugin.damage;
+            }
+            if (moveChange)
+            {
+                player.moveSpeed = _plugin.moveSpeed;
+            }
+            if (jumpChange)
+            {
+                player.jumpHeight = _plugin.jumpHeight;
+            }
+            if (enemScoreChange)
+            {
+                enemyStats._maxScore = _plugin.enemyScore;
+            }
+            if (enemSpeedChange)
+            {
+                enemyStats._speed = _plugin.enemySpeed;
+            }
+            if (enemyDistChange)
+            {
+                enemyStats._distance = _plugin.enemyDistance;
+            }
+
+            canUpdate = false;
+        }
+    }
+
 
 
 }
