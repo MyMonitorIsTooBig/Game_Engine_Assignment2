@@ -1,7 +1,6 @@
 **Link to Video Report:**
 
-https://www.youtube.com/watch?v=RLCJodHR0uk
-
+https://www.youtube.com/watch?v=Zv3ZF78kXJ8
 
 
 
@@ -65,5 +64,10 @@ Performance Profiling:
 The performance was implemented by modifying the enemies movement system and implementing object pooling. The enemy movement used to use the LookAt function to make the enemy constantly look at the player then their velocity would be set to make them move backwards away from the player. The LookAt function was removed and the movement was changed to just make the enemy move in the opposite direction of the player since the normalized vector of the enemy to the player is already set earlier with the player detection system of the enemy. This ended up optimizing the project by quite a bit, especially when a lot of enemies are loaded at once. The bullet object pooling optimization saves memory as bullets aren’t constantly being instantiated and deleted anymore and instead a pool of bullets are instantiated and the bullets are just being activated and deactivated.
 
 ![alt-text](https://github.com/MyMonitorIsTooBig/Game_Engine_Assignment2/blob/main/profiling.drawio.png)
+
+![alt-text](https://github.com/MyMonitorIsTooBig/Game_Engine_Assignment2/blob/main/before.png)
+![alt-text](https://github.com/MyMonitorIsTooBig/Game_Engine_Assignment2/blob/main/after.png)
+
+
 
 
