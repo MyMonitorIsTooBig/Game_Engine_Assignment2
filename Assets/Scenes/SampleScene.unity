@@ -4478,13 +4478,13 @@ MonoBehaviour:
   bulletStats: {fileID: 11400000, guid: 587077bd3fd396f478ebd7d31669a627, type: 2}
   enemyStats: {fileID: 11400000, guid: 1180bccf89d02044888e0d882b96cd77, type: 2}
   player: {fileID: 2127643225}
-  scoreChange: 0
-  dmgChange: 0
-  moveChange: 0
-  jumpChange: 0
-  enemScoreChange: 0
-  enemSpeedChange: 0
-  enemyDistChange: 0
+  scoreChange: 1
+  dmgChange: 1
+  moveChange: 1
+  jumpChange: 1
+  enemScoreChange: 1
+  enemSpeedChange: 1
+  enemyDistChange: 1
 --- !u!114 &1383785987
 MonoBehaviour:
   m_ObjectHideFlags: 0

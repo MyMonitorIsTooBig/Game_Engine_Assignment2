@@ -24,7 +24,7 @@ public class enemySpawner : Spawner
 
 
     public bool _freakyMode = false;
-    [SerializeField]int _freakySpawnAmt = 1000;
+    [SerializeField]int _freakySpawnAmt = 20;
 
     int enemyType;
 
